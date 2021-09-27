@@ -1,3 +1,10 @@
+Brian Wang
+APCS
+HW05 -- Summer Homework Notes
+2021--09--27
+FOR REFERENCE ONLY
+
+
 00: BeforeYouCode
   10/10, mostly just goes over the basics of coding, already covered in Intro. 
 01: HelloWorld
