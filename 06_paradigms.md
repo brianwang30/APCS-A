@@ -4,7 +4,7 @@ HW06 -- Paradigms
 2021--09--28
 
 Python: 
-```py
+```
 print(Hello, World!")
 ```
 
@@ -14,6 +14,6 @@ print "Hello, World!"
 ```
 
 Scheme: 
-```scheme
+```
 print(Hello, World!")
 ```
