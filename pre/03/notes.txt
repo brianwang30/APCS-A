@@ -1,0 +1,7 @@
+Brian Wang
+APCS
+HW05 -- Summer Homework Notes
+2021--09--28
+
+03: VoidMethods
+  10/10, already knew about how to return values in java, and about void methods. 
