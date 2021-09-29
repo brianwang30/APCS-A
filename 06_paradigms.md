@@ -15,5 +15,5 @@ print "Hello, World!"
 
 Scheme: 
 ```
-print(Hello, World!")
+(print Hello, World!")
 ```
