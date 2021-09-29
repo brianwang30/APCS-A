@@ -1,0 +1,7 @@
+Brian Wang
+APCS
+HW05 -- Summer Homework Notes
+2021--09--28
+
+05: ValueMethods
+  10/10, many ideas were covered in Intro, just applied to java. 
