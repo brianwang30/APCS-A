@@ -1,0 +1,7 @@
+Brian Wang
+APCS
+HW05 -- Summer Homework Notes
+2021--09--28
+
+04: Conditionals
+  10/10, ideas were more or less already covered in Intro, along with my previous java experience. 
