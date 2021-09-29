@@ -1,0 +1,7 @@
+Brian Wang
+APCS
+HW05 -- Summer Homework Notes
+2021--09--28
+
+06: Loops
+  9/10, just about everything was already practiced in python and racket from Intro, the only new addition I picked up from this was an enhanced for loop, which I found convenient. 
