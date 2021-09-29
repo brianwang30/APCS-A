@@ -1,0 +1,12 @@
+Brian Wang
+APCS
+HW05 -- Summer Homework Notes
+2021--09--28
+
+07: Arrays
+  Oh boy, this is where the insanity started setting in. 
+  6/10, been a while since I used arrays, I did need a refresher, but the assignment itself was, in my opinion, flawed because of the fact that the file was going to be named "Arrays", which would cause a namespace conflict with the java class Arrays.
+  I got really tipped off coding this. You will see that. 
+  Sorry. 
+  
+  However, I think it's worth keeping in the document just to keep it forever set in stone. 
