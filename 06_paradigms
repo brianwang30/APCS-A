@@ -4,10 +4,13 @@ HW06 -- Paradigms
 2021--09--28
 
 Python: 
-`print(Hello, World!")`
+```python
+print(Hello, World!")```
 
 NLogo: 
-`print "Hello, World!"`
+```netlogo
+print "Hello, World!"```
 
 Scheme: 
-`print(Hello, World!")`
+```scheme
+print(Hello, World!")```
