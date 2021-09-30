@@ -5,7 +5,7 @@
 
 public class Greet{
   public static void main(String[] args){
-    greet;
+    greet();
   }
   
   public static void greet(){
