@@ -5,10 +5,10 @@
 
 public class Greet{
   public static void main(String[] args){
-    System.out.println(greet);
+    greet;
   }
   
   public static void greet(){
-    return "Hey there, foo, how do you moo?";
+    System.out.println("Hey there, foo, how do you moo?");
   }
 }
