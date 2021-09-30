@@ -5,10 +5,12 @@
 
 public class Greet{
   public static void main(String[] args){
-    greet();
+    greet("dude");
+    greet("Mykoklyk");
+    greet("196");
   }
   
-  public static void greet(){
-    System.out.println("Hey there, foo, how do you moo?");
+  public static void greet(string name){
+    System.out.println("Hey there, " + name + ", how do you moo?");
   }
 }
