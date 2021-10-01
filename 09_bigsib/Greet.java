@@ -10,6 +10,9 @@
 DISCOVERIES
 
 Moving/Renaming files is useful
+Origins of java? do i need to put that here?
+Advantages of bytecode over C
+Where things are stored
 */
 
 /*
