@@ -9,8 +9,8 @@
 //Discoveries and Questions in Greet.java in 09_BigSibs. Probably.
 
 public class BigSib {
-        public static String greet(String name){
-                return "Hey there, " + name + ", how do you moo?";
+        public static void greet(String name){
+                System.out.println( "Hey there, " + name + ", how do you moo?");
         }
 
 }
