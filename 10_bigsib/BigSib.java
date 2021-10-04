@@ -8,6 +8,13 @@
 
 //Learned a few more error codes pertaining to some problems I had. 
 //Not much else in the terms of questions or discoveries, we barely covered anything. 
+/*
+Discoveries
+*/
+/*
+Questions
+*/
+
 
 public class BigSib {
         public static String greet(String name){
