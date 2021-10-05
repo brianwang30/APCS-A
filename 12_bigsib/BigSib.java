@@ -1,10 +1,9 @@
 //Team Name Placeholder
 //Brian (Dolphin)
-//Weichen
+//Weichen (Blueface)
 //APCS
 //HW12 - BigSibs
 //2021-10-05
-//If you see this groupie please gmail me!
 
 
 /*
