@@ -1,6 +1,6 @@
 //Team Name Placeholder
 //Brian (Dolphin)
-//WHO IS MY TEAMMATE
+//outdated (look in bigsib)
 //APCS
 //HW12 - BigSibs
 //2021-10-05
