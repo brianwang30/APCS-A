@@ -5,7 +5,7 @@
 //HW12 - BigSibs
 //2021-10-05
 
-//Stuff in BigSiby
+//Stuff in BigSib
 
 
 public class Greet {

@@ -17,7 +17,8 @@ Finding out the cause my code didn't work was because of a troubleshooting addit
 Not my partner's name
 */
 /*
- QCC What is a Kong Fooey?
+ QCC 
+What is a Kong Fooey?
 AND WHO IS MY PARTNER?
 I'M SORRY THERE WASN'T A LOT OF TIME
 I know he got my name hopefully he messages me
