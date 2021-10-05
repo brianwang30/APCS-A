@@ -5,15 +5,7 @@
 //HW12 - BigSibs
 //2021-10-05
 
-/* 
-Disco 
-*/ 
-/*
- QCC What is a Kong Fooey?
-AND WHO IS MY PARTNER?
-I'M SORRY THERE WASN'T A LOT OF TIME
-I know he got my name hopefully he messages me
- */
+//Stuff in BigSiby
 
 
 public class Greet {
