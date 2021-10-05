@@ -28,6 +28,9 @@ public class BigSib {
 
 
 	public static String helloMsg;
+	//public instance variable
+
+	//sets helloMst of BigSib to message
 	public static void setHelloMsg(String message){
 		helloMsg = message;
 	}
@@ -35,7 +38,8 @@ public class BigSib {
 
         public static String greet(String name){ 
 		return helloMsg + " " + name + "\nSalutations Dr. Spaceman\nHey ya Kong Fooey\nSup mom";
-        }
+        	//not sure if this is how this is how you want it?
+	}
 
 
 
