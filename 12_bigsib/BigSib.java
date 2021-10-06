@@ -33,8 +33,11 @@ public class BigSib {
 
 
         public static String greet(String name){ 
-		return helloMsg + " " + name + "\nSalutations Dr. Spaceman\nHey ya Kong Fooey\nSup mom";
+		//return helloMsg + " " + name + "\nSalutations Dr. Spaceman\nHey ya Kong Fooey\nSup mom";
         	//not sure if this is how this is how you want it?
+		return helloMsg + " " + name;
+		//Should be clarified that we should have created more bigsibs to make 4 greetings in the homework
+		//a small mention of changing Greet would be nice
 	}
 
 
