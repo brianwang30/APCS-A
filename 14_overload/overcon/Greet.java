@@ -1,12 +1,12 @@
-//Giant Rabbits
-//Brian (Dolphin)
-//WeiChen (Blueface)
+//TRIO NAME
+//Brian
+//Lior
+//INSERT NAME
 //APCS
-//HW13 - Hatch
-//2021-10-06
+//HW14 - Overload
+//2021-10-07
 
-//Stuff in BigSib
-
+//Stuff in defcon/Greet
 
 public class Greet {
   public static void main( String[] args ) {
