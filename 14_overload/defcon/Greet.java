@@ -1,7 +1,7 @@
-//TRIO NAME
+//Dancing Duckies
 //Brian
 //Lior
-//INSERT NAME
+//Jomin
 //APCS
 //HW14 - Overload
 //2021-10-07
