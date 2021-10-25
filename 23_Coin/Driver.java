@@ -3,6 +3,7 @@ Team BLt: Brian Wang, Lior Polischouk, Dolphin, Toothless
 APCS Pd.6
 HW23 -- What Does Equality Look Like? / Creating Coin.java with Driver.java / Making a functional coinflip code
 2021-10-22
+Time elapsed: 0.3 hours
 
 DISCO:
 0. Bias is set to 0 by default because the default unassigned value is 0, making it a very unfair coin.
