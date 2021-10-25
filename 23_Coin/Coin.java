@@ -1,19 +1,27 @@
-/***
- *  class Coin
- *  by Clyde "Thluffy" Sinclair
- *  SKELETON
- ***/
+/*
+Team BLt: Brian Wang, Lior Polischouk, Dolphin, Toothless
+APCS Pd.6
+HW23 -- What Does Equality Look Like? / Creating Coin.java with Driver.java / Making a functional coinflip code
+2021-10-22
 
+DISCO:
+0. Bias is set to 0 by default because the default unassigned value is 0, making it a very unfair coin.
+1. We have to set either heads or tails as a default value for upFace, or else the face will just be "null" for the first 2 constructors.
+2. Math.random() is very annoying
+QCC:
+0. What if the random value equals the bias? Does the coin land on the side? 
+
+ */
 public class Coin {
 
   //attributes aka instance vars
   private double value;
-  private String upFace;
+  private String upFace = "heads";
   private String name;
   private int flipCtr;
   private int headsCtr;
   private int tailsCtr;
-  private double bias;
+  private double bias = 0.5;
 
 
   /***
@@ -177,14 +185,17 @@ public class Coin {
   public String flip() {
     //What if Math.random is equal to bias?
     flipCtr += 1;
-    if (Math.random() < bias) {
+    double randomNum = Math.random();
+    if (randomNum < bias) {
       upFace = "tails";
       tailsCtr += 1;
     }
-    if (Math.random() > bias) {
+    if (randomNum > bias) {
       upFace = "heads";
       headsCtr += 1;
     }
+    //System.out.println("bias: " + bias);
+    //System.out.println("Rando: " + randomNum);
     return "Coin denomination is: " + name + ", coin is currently on: " + upFace;
   }
 

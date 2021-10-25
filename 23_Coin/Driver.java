@@ -1,14 +1,17 @@
-/***
-    driver for class Coin
-    ~~~ SUGGESTED WORKFLOW: ~~~
-    1. Compile this file and run. Note anything notable.
-    2. Move the "TOP" line down, so that it is below the first statement.
-    (emacs: with cursor at beginning of TOP line, C-k C-k, DOWN, DOWN, C-y)
-    (your editor: ???)
-    3. Compile and run again.
-    4. Resolve errors one at a time until it works.
-    5. Repeat 2-4 until TOP meets BOTTOM.
-***/
+/*
+Team BLt: Brian Wang, Lior Polischouk, Dolphin, Toothless
+APCS Pd.6
+HW23 -- What Does Equality Look Like? / Creating Coin.java with Driver.java / Making a functional coinflip code
+2021-10-22
+
+DISCO:
+0. Bias is set to 0 by default because the default unassigned value is 0, making it a very unfair coin.
+1. We have to set either heads or tails as a default value for upFace, or else the face will just be "null" for the f>
+2. Math.random() is very annoying
+QCC:
+0. What if the random value equals the bias? Does the coin land on the side?
+
+ */
 
 public class Driver {
 
@@ -43,8 +46,8 @@ public class Driver {
       else {
         System.out.println( "No match. Firestarter you can not be." );
       }
-      System.out.println(yours.getBias());
-      System.out.println(wayne.getBias());
+      //System.out.println(yours.getBias());
+      //System.out.println(wayne.getBias());
       /*====================BOTTOM======================*/
 
   }//end main()
