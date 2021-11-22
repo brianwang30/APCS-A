@@ -1,0 +1,14 @@
+Brian Wang
+APCS
+HW36 -- All Quacked Up : Smarter Debugging Through Ducks
+2021-11-18
+time spent: 0.5 hours
+
+-Tackle bugs one at a time
+-Ensure the compiler complies with you in the code you are compiling
+-Prints can help trace code
+-Too many trace prints can be fixed by formatting or culling
+-Remember specifics about Java methods and such - check documentation
+-Break down complex expressions to be easy on the mind
+-Prints can be used to check if some code isn't running when it should be
+-Computers exhibit harmful memetic effects on specific indidividuals after long exposure. If behavioral changes are noted, immediately notify MTF ETA-10 See No Evil. 
