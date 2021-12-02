@@ -6,7 +6,7 @@
 
 /*
 DISCOVERIES
-   0.
+   0. Functionality of compareTo being able to tell if the value is greater or smaller, compared to just equals.
 UNRESOLVED QUESTIONS
    0. Would it not be best to implement some simplifies inside of operations?
 */
