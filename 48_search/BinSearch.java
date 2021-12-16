@@ -44,11 +44,11 @@ public class BinSearch
     int tPos = -1; //init return var to flag value -1
     int m = (lo + hi) / 2; //init mid pos var
 
-    while( /* ? */ ) { // run until lo & hi cross
+    while( lo <= hi ) { // run until lo & hi cross
 
       //update mid pos var
 
-      // target found
+      if(a[])
 
       // value at mid index higher than target
 
@@ -95,7 +95,7 @@ public class BinSearch
   public static void main ( String[] args )
   {
 
-    /*----------------------------------------------------
+
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     System.out.println("\nNow testing binSearch on Comparable array...");
@@ -135,6 +135,7 @@ public class BinSearch
 
     //search for 43 in array
     System.out.println( binSearch(iArr3,43) );
+/*----------------------------------------------------
     ====================================================*/
 
 
