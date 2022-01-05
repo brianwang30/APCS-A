@@ -23,7 +23,8 @@
 * q2: How do you know if sorted?
 * a2: We know if the array is sorted if the values are in ascending order. That is, that starting from the end to the start of the array, the value should be decreasing.
 * q3: What does a pass boil down to?
-* a3: A pass boils down to locating the smallest value in the array and swapping it
+* a3: A pass boils down to the most simplified version of the array, meaning the array placed in ascending order from left to right.
+* Each n pass symbolizes that n values are in chronological order.
 *
 * Why does java like to complain that maxPos might not have been initialized if it is impossible for it to not be initialized? Just a java thing? Because it is in a for?
 ******************************/
