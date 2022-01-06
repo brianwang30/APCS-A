@@ -14,14 +14,14 @@ public class Sorts{
   }
 
   public static void main(String[] illsortyourfaceout){
-    ArrayList<Integer> test = new ArrayList<Integer>();
+    ArrayList test = new ArrayList<Integer>();
     for(int i = 0 ; i < 15 ; i += 1){
-      test.add(math.random()*100);
+      test.add((int)(Math.random()*100));
     }
     System.out.println(test);
-    Sorts.bubble(test);
+    //Sorts.bubble(test);
     //Sorts.insertion(test);
-    //Sorts.selection(test);
+    Sorts.selection(test);
     System.out.println(test);
   }
 }

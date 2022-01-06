@@ -28,7 +28,7 @@
 *
 * Why does java like to complain that maxPos might not have been initialized if it is impossible for it to not be initialized? Just a java thing? Because it is in a for?
 ******************************/
- ******************************/
+
 
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class SelectionSort
   //          from lo to hi, inclusive
   public static ArrayList populate( int size, int lo, int hi )
   {
-    ArrayList<Integer> retAL = new ArrayList<Integer>();
+    ArrayList<Comparable> retAL = new ArrayList<Comparable>();
     while( size > 0 ) {
       //     offset + rand int on interval [lo,hi]
       retAL.add( lo + (int)( (hi-lo+1) * Math.random() ) );
@@ -77,21 +77,21 @@ public class SelectionSort
 
     for( int pass = 1 ; pass < data.size() ; pass += 1 ) {
       maxPos = 0; //reset maxPos every time
-      System.out.println( "\nbegin pass " + (data.size() - pass) );//diag
+      //System.out.println( "\nbegin pass " + (data.size() - pass) );//diag
       for( int searched = data.size() - pass ; searched >= 0 ; searched -= 1 ) { //Loop to find index of maximum unsorted value
-        System.out.println(searched);
+        //System.out.println(searched);
         if(data.get(searched).compareTo(data.get(maxPos)) > 0){ //tests if current value greater than maxPos
           maxPos = searched;
-          System.out.println( "maxPos: " + maxPos );//diag
-          System.out.println( data );//diag
+          //System.out.println( "maxPos: " + maxPos );//diag
+          //System.out.println( data );//diag
         }
 
       }
       //swap maxPos and pass values
       data.set(data.size() - pass, data.set(maxPos, data.get(data.size() - pass)));
 
-      System.out.println( "maxPos: " +  maxPos + "\npass: " + pass );//diag
-      System.out.println( "after swap: " +  data );//diag
+      //System.out.println( "maxPos: " +  maxPos + "\npass: " + pass );//diag
+      //System.out.println( "after swap: " +  data );//diag
     }
   }//end selectionSort
 

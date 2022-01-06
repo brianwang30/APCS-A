@@ -67,8 +67,8 @@ public class InsertionSort
     for( int partition = 1 ; partition < data.size() ; partition += 1 ) {
       //partition marks first item in unsorted region
 
-      System.out.println( "\npartition: " + partition + "\tdataset:"); //diag
-      System.out.println( data );
+      //System.out.println( "\npartition: " + partition + "\tdataset:"); //diag
+      //System.out.println( data );
 
       //traverse sorted region from right to left
       for( int i = partition ; i > 0 ; i -= 1 ) {
@@ -77,7 +77,7 @@ public class InsertionSort
         // by swapping adjacent items
         if ( data.get(i).compareTo(data.get(i - 1)) < 0)  {
           data.set(i, data.set(i - 1, data.get(i)));
-          System.out.println( "swap indices "+(i-1)+" & "+i+"..." ); //diag
+          //System.out.println( "swap indices "+(i-1)+" & "+i+"..." ); //diag
 
         }
         else
