@@ -28,7 +28,7 @@
 *
 * Why does java like to complain that maxPos might not have been initialized if it is impossible for it to not be initialized? Just a java thing? Because it is in a for?
 ******************************/
- ******************************/
+
 
 
 import java.util.ArrayList;
