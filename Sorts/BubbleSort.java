@@ -72,11 +72,14 @@ public class BubbleSort
   {
     for(int i = data.size() - 1 ; i > 0 ; i -= 1){
       for(int j = data.size() - 1 ; j > 0 ; j -= 1){
+
         if(data.get(j).compareTo(data.get(j - 1)) < 0){
+          System.out.println(data);
           data.set(j, data.set(j - 1, data.get(j)));
         }
       }
     }
+    System.out.println(data);
   }
 
 

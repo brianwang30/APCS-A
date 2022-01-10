@@ -79,6 +79,7 @@ public class SelectionSort
       maxPos = 0; //reset maxPos every time
       //System.out.println( "\nbegin pass " + (data.size() - pass) );//diag
       for( int searched = data.size() - pass ; searched >= 0 ; searched -= 1 ) { //Loop to find index of maximum unsorted value
+
         //System.out.println(searched);
         if(data.get(searched).compareTo(data.get(maxPos)) > 0){ //tests if current value greater than maxPos
           maxPos = searched;
@@ -88,11 +89,13 @@ public class SelectionSort
 
       }
       //swap maxPos and pass values
+      System.out.println(data);
       data.set(data.size() - pass, data.set(maxPos, data.get(data.size() - pass)));
 
       //System.out.println( "maxPos: " +  maxPos + "\npass: " + pass );//diag
       //System.out.println( "after swap: " +  data );//diag
     }
+    System.out.println(data);
   }//end selectionSort
 
 

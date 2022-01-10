@@ -73,9 +73,11 @@ public class InsertionSort
       //traverse sorted region from right to left
       for( int i = partition ; i > 0 ; i -= 1 ) {
 
+
         // "walk" the current item to where it belongs
         // by swapping adjacent items
         if ( data.get(i).compareTo(data.get(i - 1)) < 0)  {
+          System.out.println(data);
           data.set(i, data.set(i - 1, data.get(i)));
           //System.out.println( "swap indices "+(i-1)+" & "+i+"..." ); //diag
 
@@ -84,6 +86,7 @@ public class InsertionSort
           break;
       }
     }
+    System.out.println(data);
   }//end insertionSortV
 
 
