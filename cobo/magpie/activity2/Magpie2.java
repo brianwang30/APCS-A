@@ -10,6 +10,23 @@
  * @author Laurie White
  * @version April 2012
  */
+// Brianiacs (JingYi Feng, Brian Kang, Brian Wang)
+// APCS pd6
+// HW56 -- Turing Training Wheels
+// 2022-01-12r
+// time spent: 1 hrs
+/*
+ANSWERS:
+Keyword:       Response:
+covid/covid-19 I hate lockdown!
+magpie         That's me!
+Brian/JingYi   They helped create me!
+
+When more than one keyword is present the first keyword listed in the else-if chain will be considered.
+The best way to priortize would be to move the more "important" responses up in the code.
+
+1. They will still be detected and considered a keyword.
+ */
 public class Magpie2
 {
 	/**
@@ -60,6 +77,24 @@ public class Magpie2
 		{
 			response = "I'm sure they are a great teacher!";
 		}
+		else if(statement.indexOf("covid") >= 0
+		|| statement.indexOf("covid-19") >= 0)
+		{
+			response = "I hate lockdown!";
+		}
+		else if(statement.indexOf("magpie") >= 0)
+		{
+			response = "That's me!";
+		}
+		else if(statement.indexOf("Brian") >= 0
+		|| statement.indexOf("JingYi") >= 0)
+		{
+			response = "They helped create me!";
+		}
+		else if(statement.trim().length() < 1)
+		{
+			response = "Why so shy?";
+		}
 		else
 		{
 			response = getRandomResponse();
@@ -73,7 +108,7 @@ public class Magpie2
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -93,6 +128,14 @@ public class Magpie2
 		else if (whichResponse == 3)
 		{
 			response = "You don't say.";
+		}
+		else if (whichResponse == 4)
+		{
+			response = "Continue!";
+		}
+		else if (whichResponse == 5)
+		{
+			response = "No way.";
 		}
 
 		return response;

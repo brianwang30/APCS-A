@@ -1,18 +1,46 @@
 /**
  * A program to carry on conversations with a human user.
- * This version: 
+ * This version:
  * <ul><li>
- *    Uses advanced search for keywords 
- * </li></ul> 
- *    
+ *    Uses advanced search for keywords
+ * </li></ul>
+ *
  * @author Laurie White
  * @version April 2012
+ */
+ // Brianiacs (JingYi Feng, Brian Kang, Brian Wang)
+ // APCS pd6
+ // HW56 -- Turing Training Wheels
+ // 2022-01-12r
+ // time spent: 1 hrs
+ /*
+ ANSWERS:
+"She's my sister", "sister"
+	Iteration:		psn:		Before:		After:
+	1.						9				" "				" "
+
+"Brother Tom is helpful", "brother""
+	Iteration:		psn:		Before:		After:
+	1.						0									" "
+
+"I can't catch wild cats.", "cat"
+	Iteration:		psn:		Before:		After:
+	1.						2				" "				"'"
+	2. 						8				" "				"c"
+	3. 						19			" "				"s"
+
+"I know nothing about snow plows.", "no"
+	Iteration:		psn:		Before:		After:
+	1.						3				"k"				"w"
+	2. 						7				" "				"t"
+	3. 						22			"s"				"w"
+
  */
 public class Magpie3
 {
 	/**
 	 * Get a default greeting
-	 * 
+	 *
 	 * @return a greeting
 	 */
 	public String getGreeting()
@@ -22,7 +50,7 @@ public class Magpie3
 
 	/**
 	 * Gives a response to a user statement
-	 * 
+	 *
 	 * @param statement
 	 *            the user statement
 	 * @return a response based on the rules given
@@ -44,6 +72,37 @@ public class Magpie3
 				|| findKeyword(statement, "brother") >= 0)
 		{
 			response = "Tell me more about your family.";
+		}
+		else if (findKeyword(statement, "Mr.") >= 0)
+		{
+			response = "I'm sure he's a great teacher!";
+		}
+		else if (findKeyword(statement, "Mrs.") >= 0
+		|| findKeyword(statement, "Ms.") >= 0)
+		{
+			response = "I'm sure she's a great teacher!";
+		}
+		else if(findKeyword(statement, "Doctor") >= 0)
+		{
+			response = "I'm sure they are a great teacher!";
+		}
+		else if(findKeyword(statement, "covid") >= 0
+		|| findKeyword(statement, "covid-19") >= 0)
+		{
+			response = "I hate lockdown!";
+		}
+		else if(findKeyword(statement, "magpie") >= 0)
+		{
+			response = "That's me!";
+		}
+		else if(findKeyword(statement, "Brian") >= 0
+		|| findKeyword(statement, "JingYi") >= 0)
+		{
+			response = "They helped create me!";
+		}
+		else if(statement.trim().length() < 1)
+		{
+			response = "Why so shy?";
 		}
 		else
 		{
@@ -122,7 +181,7 @@ public class Magpie3
 	 * is not a substring of a longer string (so, for
 	 * example, "I know" does not contain "no"). The search
 	 * begins at the beginning of the string.
-	 * 
+	 *
 	 * @param statement
 	 *            the string to search
 	 * @param goal
@@ -137,7 +196,7 @@ public class Magpie3
 
 	/**
 	 * Pick a default response to use if nothing else fits.
-	 * 
+	 *
 	 * @return a non-committal string
 	 */
 	private String getRandomResponse()
@@ -162,6 +221,14 @@ public class Magpie3
 		else if (whichResponse == 3)
 		{
 			response = "You don't say.";
+		}
+		else if (whichResponse == 4)
+		{
+			response = "Continue!";
+		}
+		else if (whichResponse == 5)
+		{
+			response = "No way.";
 		}
 
 		return response;
