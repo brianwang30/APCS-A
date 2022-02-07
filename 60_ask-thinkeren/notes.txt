@@ -1,0 +1,26 @@
+Benjamin (Jun Hong Wang, Brian Wang, Nicole Zhou)
+APCS
+HW60 -- <A Termite is-a Turtle, a Thinker is-a Turtle/Merge Sorts/Sorting a deck of cards through outsourcing>
+2022--02--07
+Time Spent:
+
+DISCO: We are a very disorganized class.
+QCC: Isn't a deck of cards 52 cards? We only have 32 (I think) people. How could we have possibly made it work?
+
+Our attempts at sorting the deck was... a disaster.
+There are many reasons for this.
+* A lot (maybe too much) of talking, but still too little communication.
+* Bad organization. Nobody really followed a pattern when passing on their cards. They just tossed them about.
+* Lots of people forgot who gave them cards, since the people giving them cards were often in themselves pilgrims from a faraway land. 
+* Very had to move around the room, even harder to pass out cards in a smart order.
+In the end, we were unsuccessful.
+
+Maybe if we make a more organized way to pass out cards.
+Even more organized than raising and holding out hands.
+Like a specific order to give out cards.
+
+From what I gathered, this sort appears to be some sort of recursive sort, constantly calling itself on a list of items until the list inputted is of length 1.
+Then, working backwards, each single element is sorted by the previous call, creating many but small sorted lists.
+Then, as with the algos we wrote in class about creating a sorted list from two lists, the once again previous call would assemble a new longer list with all the elements in it, but sorted.
+Rinse and repeat, working backwards, until only the original list remains, but sorted.
+This did not quite happen in class.
