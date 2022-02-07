@@ -1,8 +1,8 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
-// L05 -- pulling it together
-// 2022-02-03r
-// time spent:  hrs
+//Team Benjamin (Brian Wang, Jun Hong Wang, Nicole Zhou, Dolphin, Bob, Duck)
+//APCS pd6
+//L05 -- pulling it together
+//2022-02-03r
+//time spent: 2 hrs
 
 /***
  * class StatPrinterApp
@@ -55,6 +55,9 @@ public class StatPrinterApp
     al2.add(2);
     al2.add(3);
 
+    //al2.add(5);
+    //al2.add(6);
+
     StatPrinter sp2 = new StatPrinter( al2 );
 
     System.out.println( "sp2 testing: " );
@@ -63,6 +66,7 @@ public class StatPrinterApp
     for( Integer i : al2 ) {
     System.out.println( i + " is local mode?\t" + sp2.isLocalMode(i) );
     }
+    System.out.println(sp2.getLocalModes());
     System.out.println( "histogram:" );
     sp2.printHistogram( 50 );
   }

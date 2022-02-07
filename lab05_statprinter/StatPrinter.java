@@ -1,8 +1,8 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
-// L05 -- pulling it together
-// 2022-02-03r
-// time spent:  hrs
+//Team Benjamin (Brian Wang, Jun Hong Wang, Nicole Zhou, Dolphin, Bob, Duck)
+//APCS pd6
+//L05 -- pulling it together
+//2022-02-03r
+//time spent: 2 hrs
 
 
 /**
@@ -109,14 +109,15 @@ public class StatPrinter
   //    isLocalMode(0) -> false
   //    isLocalMode(1) -> true
   //    isLocalMode(5) -> true
+  //Constant runtime (O(1))
   public boolean isLocalMode( int i )
   {
     /* YOUR IMPLEMENTATION HERE */
-    if(i < 0 || i > _frequency.size() - 2){
-      return false;
-    }
-    else if(_frequency.get(i - 1) < _frequency.get(i) &&
-            _frequency.get(i + 1) < _frequency.get(i)){
+
+    if(i > 0 &&
+       i < _frequency.size() - 1 &&
+       _frequency.get(i - 1) < _frequency.get(i) &&
+       _frequency.get(i + 1) < _frequency.get(i)){
       return true;
     }
     else{
@@ -127,18 +128,37 @@ public class StatPrinter
 
   //*************** QUESTION 04 **************************
   //postcond: returns list of modes in _frequency
-  //public ArrayList<Integer> getLocalModes()
-  //{
+  //Linear runtime (O(n))
+  public ArrayList<Integer> getLocalModes()
+  {
     /* YOUR IMPLEMENTATION HERE */
-
-  //}
+    ArrayList<Integer> modes = new ArrayList();
+    for(int i = 0 ; i < _frequency.size() ; i += 1){
+      if(isLocalMode(i)){
+        modes.add(i);
+      }
+    }
+    return modes;
+  }
 
 
   //*************** QUESTION 05 **************************
   //precond:  longestBar > 0
+  //Quadratic runtime (O(n^2))
   public void printHistogram( int longestBar )
   {
     /* YOUR IMPLEMENTATION HERE */
+    String res = "";
+    for(int i = 0 ; i < _frequency.size() ; i += 1){
+      res += i + ": ";
+      for(int j = 0 ; j < _frequency.get(i) ; j += 1){
+        if(j < longestBar){
+          res += "*";
+        }
+      }
+      res += "\n";
+    }
+    System.out.println(res);
   }
 
 }//end class StatPrinter
