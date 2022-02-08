@@ -1,0 +1,21 @@
+Team Gnome-session (William Vongphanith, Brian Wang)
+APCS pd6
+HW61 -- Instructions So Simple
+2022-02-07
+Time spent: 0.5 hours
+
+Notables:
+
+DISCO
+------------------------------------------------
+* ArrayList not needed because length of final array already determined
+* Merge sort runs well recursively, calling itself on the sub-arrays created when splitting
+================================================
+
+
+QCC
+------------------------------------------------
+* Would splitting the array into three sub-arrays create for a faster merge sort?
+* If so, how many pieces should we split the array into to create the fastest merge sort?
+* Is there a falloff to that point? Is the fastest number of sub-arrays dependant on the original size?
+================================================
