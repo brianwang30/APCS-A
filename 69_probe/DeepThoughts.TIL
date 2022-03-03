@@ -1,0 +1,32 @@
+﻿Twang: (Jeffery Tang, Ruiwen 'Raven' Tang, Brian Wang)
+APCS
+HW69 Making Sense/Knight’s Tour 
+2020-03-02
+Time Spent: 01.2 hrs
+
+
+ *** The following times are taken with delay() and animation components commented out. ***
+ * Mean execution times for boards of size n*n:
+ * n=5   0.793s    across 3 executions
+ * n=6   1.142s    across 3 executions
+ * n=7   179.701s    across 3 executions
+ * n=8   631.674s    across 3 executions
+
+
+q0: From any starting position, can an open tour always be found? Explain. 
+        Probably. As long as at least one open tour exists, our tests have led us to believe (we tried finding a tour from every starting position for n = 5) that there most likely is an open tour for every tile on the board. 
+q1: Same, but for closed tour. 
+        Yes. If at least one closed tour exists for the board, the starting position does not matter, because the closed tour would be a cycle, and you could start anywhere on the cycle and end where you started. 
+q2: How do you explain the increase in execution time as n increases? 
+        The increase in execution time is caused by the additional spaces from increasing n because the number of spaces and total moves required is n^2. The increase in time is inconclusive from the data due to the complexity of the method being non-linear.
+q3: Thoughts on optimization?
+        We could possibly spot patterns to optimize the process rather than brute forcing every single input, and also, if we can break up the current grid into smaller grids that we already know tours for, we could just test for a solution that works for the big grid using a combination of already known smaller tours. 
+
+
+Algo:
+1. Evaluate your neighbors. Identify those that have not been visited and that are not barriers. Out of these available positions, take the rightmost option.
+2. Mark your new position as visited.
+3. Repeat steps 1-2 for as long as there are available positions or until you solve the maze.
+4. a) If you have reached the end of the maze, you’re done!
+b) If there are no more available positions (dead end), return to the previous visited square. Repeat this substep until you’ve reached a square with at least one unvisited and non-barrier adjacent square. Repeat steps 1-3 from this square. 
+5. If all possibilities have been exhausted, the maze is impossible to solve.
