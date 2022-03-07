@@ -1,33 +1,32 @@
-// Twang (Jeffery Tang, Ruiwen "Raven" Tang, Brian Wang)
-// APCS pd6
-// HW70 -- maze solving (blind, depth-first)
-// 2022-03-03r
-// time spent:  hrs
+// Twang: Jeffery Tang, Brian Wang, Raven (Ruiwen) Tang
+// APCS pd06
+// HW70 -- Thinkers of the Corn / maze solving (blind, depth-first)
+// 2022-03-03
+// time spent: 00.5 hrs
 
 /***
- * SKEELTON for
- * class MazeSolver
- * Implements a blind depth-first exit-finding algorithm.
- * Displays probing in terminal.
- *
- * USAGE:
- * $ java Maze [path/to/mazefile]
- * (mazefile is ASCII representation of a maze, using symbols below)
- *
- * ALGORITHM for finding exit from starting position:
- * 1. Evaluate your neighbors. Identify those that have not been visited and that are not barriers. Out of these available positions, take the first option clockwise from the top.
- * 2. Mark your new position as visited.
- * 3. Repeat steps 1-2 for as long as there are available positions or until you solve the maze.
- * 4. a) If you have reached the end of the maze, you’re done!
- *    b) If there are no more available positions (dead end), return to the previous visited square. Repeat this substep until you’ve reached a square with at least one unvisited and non-barrier adjacent square. Repeat steps 1-3 from this square.
- * 4. If all possible tiles have been visited and no solution has been reached, the maze is impossible.
- *
- *
- * DISCO
- *
- * QCC
- *
- ***/
+* SKEELTON for
+* class MazeSolver
+* Implements a blind depth-first exit-finding algorithm.
+* Displays probing in terminal.
+*
+* USAGE:
+* $ java Maze [path/to/mazefile]
+* (mazefile is ASCII representation of a maze, using symbols below)
+*
+* ALGORITHM for finding exit from starting position:
+*
+* 1) Move to the tile above
+* 2) If the current tile is the exit, mark the exit with the hero and exit
+* 3) If the current tile is a path, mark the path with the hero and restart from step 1 on a new branch, changing the direction clockwise from top if the previous branch is terminated
+     If all branches for this tile have been exhausted, mark this tile as a visited path and terminate this branch
+* 4) If the current tile is a wall, visited path, or hero, terminate this branch
+* 5) If no soultion has been found and all possible branches terminated, mark the maze as unsolvable
+* DISCO
+*
+* QCC
+*
+***/
 
 //enable file I/O
 import java.io.*;
@@ -36,7 +35,7 @@ import java.util.*;
 
 class MazeSolver
 {
-  final private int FRAME_DELAY = 50;
+  final private int FRAME_DELAY = 100;
 
   private char[][] _maze;
   private int h, w; // height, width of maze
@@ -71,17 +70,17 @@ class MazeSolver
         String line = sc.nextLine();
 
         if ( w < line.length() )
-          w = line.length();
+        w = line.length();
 
         for( int i=0; i<line.length(); i++ )
-          _maze[i][row] = line.charAt( i );
+        _maze[i][row] = line.charAt( i );
 
         h++;
         row++;
       }
 
       for( int i=0; i<w; i++ )
-        _maze[i][row] = WALL;
+      _maze[i][row] = WALL;
       h++;
       row++;
 
@@ -93,8 +92,8 @@ class MazeSolver
 
 
   /**
-   * "stringify" the board
-   **/
+  * "stringify" the board
+  **/
   public String toString()
   {
     //send ANSI code "ESC[0;0H" to place cursor in upper left
@@ -105,7 +104,7 @@ class MazeSolver
     int i, j;
     for( i=0; i<h; i++ ) {
       for( j=0; j<w; j++ )
-        retStr = retStr + _maze[j][i];
+      retStr = retStr + _maze[j][i];
       retStr = retStr + "\n";
     }
     return retStr;
@@ -113,9 +112,9 @@ class MazeSolver
 
 
   /**
-   * helper method to keep try/catch clutter out of main flow
-   * @param n      delay in ms
-   **/
+  * helper method to keep try/catch clutter out of main flow
+  * @param n      delay in ms
+  **/
   private void delay( int n )
   {
     try {
@@ -127,38 +126,49 @@ class MazeSolver
 
 
   /**
-   * void solve(int x,int y) -- recursively finds maze exit (depth-first)
-   * @param x starting x-coord, measured from left
-   * @param y starting y-coord, measured from top
-   **/
+  * void solve(int x,int y) -- recursively finds maze exit (depth-first)
+  * @param x starting x-coord, measured from left
+  * @param y starting y-coord, measured from top
+  **/
   public void solve( int x, int y )
   {
     delay( FRAME_DELAY ); //slow it down enough to be followable
 
     //primary base case
-    if ( ??? ) {
-	???
+    if ( _maze[x][y] == EXIT ) {
+      _maze[x][y] = HERO;
+      System.out.println( this );
+      _solved = true;
+
+      System.exit(0);
+
     }
     //other base cases
-    else if ( ??? ) {
-	???
-      return;
+    else if ( _maze[x][y] == PATH) {
+      _maze[x][y] = HERO;
+      solve(x, y-1);
+      solve(x+1, y);
+      solve(x, y+1);
+      solve(x-1, y);
+      if(_maze[x][y] == HERO){
+        _maze[x][y] = VISITED_PATH;
+      }
+
     }
-    //otherwise, recursively solve maze from next pos over,
-    //after marking current location
-    else {
-	???
-      System.out.println( this ); //refresh screen
 
-???
-      System.out.println( this ); //refresh screen
-    }
+  //otherwise, recursively solve maze from next pos over,
+  //after marking current location
+  else {
+
+    System.out.println( this ); //refresh screen
+    return;
   }
+}
 
-  //accessor method to help with randomized drop-in location
-  public boolean onPath( int x, int y) {
-
-  }
+//accessor method to help with randomized drop-in location
+public boolean onPath( int x, int y) {
+  return (_maze[x][y] == PATH || _maze[x][y] == EXIT);
+}
 
 }//end class MazeSolver
 
@@ -188,13 +198,13 @@ public class Maze
 
     //drop hero into the maze (coords must be on path)
     // ThinkerTODO: comment next line out when ready to randomize startpos
-    ms.solve( 4, 3 );
+    ms.solve( 1, 1 );
 
     //drop our hero into maze at random location on path
     // YOUR RANDOM-POSITION-GENERATOR CODE HERE
     //ms.solve( startX, startY );
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
 }//end class Maze
