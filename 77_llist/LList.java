@@ -10,6 +10,12 @@
  * Implements a linked list of LLNodes, each containing String data
  **/
 
+ /*
+ ALGOS:
+ Ins: Walk to location, and couple in the new node inbetween this and the next node.
+ Rem: Walk to location, and recouple prev node to node after deleted node. 
+ */
+
 public class LList implements List //interface def must be in this dir
 {
 
