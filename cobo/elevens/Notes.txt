@@ -2,6 +2,32 @@ BURN (Ruiwen Tang, Brian Wang, Nora Miller)
 APCS
 L07 - But These Go Up To Eleven
 2022-03-18
+Time spent:
+0.7 hours in class on Activity 1, 2
+1.0 hours at home on Activity 2, 3
+
+DISCO:
+ - Interestingly enough, some text editors provide unmappable unicode (or not?) characters.
+   error below:
+   Shuffler.java:96: error: unmappable character (0x9D) for encoding windows-1252
+        Thus, flip should return “heads▒? about twice as often as it returns “tails▒?
+   Since it was copy pasted, we had to retype the quotation marks from within atom.
+ - Our group found out that activity 3 question 3 has only one answer, despite seeming like it has multiple.
+   This is because we cannot swap to a number larger than the current number, meaning that unless we follow the order
+    0, 1, 1, 0
+   As in, after the (size - k)th move, the last (size - k) elements are put in their final positions, because we cannot swap to a number larger than k.
+ - In Activity 2, we thought it was interesting how we could save sets of possible properties for an object by splitting them into different arrays.
+   For example, our cards in Activity 2 had different arrays that held their attributes, like values and faces.
+
+QCC:
+ - In activity 3 Shuffler.java, we realized that for the perfect shuffle, we would fill the new array with a shuffled deck.
+   However, the algorithm provided by the cobo does not put the shuffled array back into the original deck.
+ - In activity 3, where are we supposed to put the methods to be written in the questions? We put them in Shuffler.java, but it still seems to not belong there.
+ - Activity 3 question 2: If there were duplicate elements, a good idea would be to sort the arrays instead of manually searching for each element.
+   Having duplicate elements would falsely trip the flag system for an element that does not exist in the other array,
+   but by sorting, we don't have to individually search for each element, we can just compare indexes.
+   This would turn the runtime to n * log(n), or whatever our sort runtime is.
+   The sort approach would also work for the non-duplicate case, while also reducing the runtime (which is currently at linear)
 
 Act 1:
 Card class
@@ -31,4 +57,20 @@ Questions:
 1. A deck contains cards
 2. 6 cards
 3. ranks = {"2", "3", "4", "5", "6", "7", "8", 9, 10, jack, queen, king, ace}
-   suits = {Spade, Club, Diamond}
+   suits = {Spade, Club, Diamond, Heart}
+   pointValues = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11}
+4. no
+
+Act 3:
+1 and 2 in Shuffler.java
+3. 0, 1, 1, 0 is one set of random numbers.
+   Trace:
+   {1,2,3,4}
+   r = 0
+   {4,2,3,1}
+   r=1
+   {4,3,2,1}
+   r=1
+   {4,3,2,1}
+   r=0
+   {4,3,2,1}
