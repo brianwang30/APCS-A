@@ -3,8 +3,8 @@ APCS
 L07 - But These Go Up To Eleven
 2022-03-18
 Time spent:
-0.7 hours in class on Activity 1, 2
-1.0 hours at home on Activity 2, 3
+0.7 hrs in class on Activity 1, 2
+1.0 hrs at home on Activity 2, 3
 
 EXPERIENCES:
 The lab was somewhat frustrating.

@@ -3,8 +3,8 @@ APCS
 L07 - But These Go Up To Eleven
 2022-03-18
 Time spent:
-0.7 hours in class on Activity 1, 2
-1.0 hours at home on Activity 2, 3
+0.7 hrs in class on Activity 1, 2
+1.0 hrs at home on Activity 2, 3
 
 DISCO:
  - Interestingly enough, some text editors provide unmappable unicode (or not?) characters.
@@ -28,6 +28,7 @@ QCC:
    but by sorting, we don't have to individually search for each element, we can just compare indexes.
    This would turn the runtime to n * log(n), or whatever our sort runtime is.
    The sort approach would also work for the non-duplicate case, while also reducing the runtime (which is currently at linear)
+ - Where is the playable version of elevens for Activity 6?
 
 Act 1:
 Card class
@@ -74,3 +75,15 @@ Act 3:
    {4,3,2,1}
    r=0
    {4,3,2,1}
+
+Act 5:
+skipped
+
+Act 6:
+1. (5spade, 6club), (5club, 6club),
+2. Yes. The only way to remove/have three cards left is if the are a pair of J, Q, and K.
+   Specifically, the only trio that can exist is a set of J, Q, and K, as any number value card can only exist in pairs.
+   Likewise, you can only have, when reduced, one J, one Q, and one K, as these three cards exist only in 4 sets of three.
+3. No. Suits do not matter so there is no variation within the groups of numbered cards and royal cards.
+   And between picking numbered cards and royal cards, you can only pick numbered cards in pairs and royal cards in triplets.
+   Therefore, only the order of cards recieved matters. 
