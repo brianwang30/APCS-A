@@ -2,9 +2,7 @@ BURN (Ruiwen Tang, Brian Wang, Nora Miller)
 APCS
 L07 - But These Go Up To Eleven
 2022-03-18
-Time spent:
-0.7 hrs in class on Activity 1, 2
-1.0 hrs at home on Activity 2, 3
+Time spent: 3.9 hrs
 
 DISCO:
  - Interestingly enough, some text editors provide unmappable unicode (or not?) characters.
@@ -86,4 +84,60 @@ Act 6:
    Likewise, you can only have, when reduced, one J, one Q, and one K, as these three cards exist only in 4 sets of three.
 3. No. Suits do not matter so there is no variation within the groups of numbered cards and royal cards.
    And between picking numbered cards and royal cards, you can only pick numbered cards in pairs and royal cards in triplets.
-   Therefore, only the order of cards recieved matters. 
+   Therefore, only the order of cards recieved matters.
+
+Act 7:
+1. Dealt cards, undealt cards
+   Card card1
+   Card card2
+   ...
+   Card cardx (where x is the number of cards available to choose from at once)
+   Deck undealt
+
+2. a. Shuffle the deck.
+   b. Deal until 9 cards are flipped up on the table.
+   c. (player turn) Remove either pairs of number face cards adding up to 11 (ace being 1), or triplets of a J, Q, and K regardless of suit.
+   d. Repeat from step a until no moves are possible or all cards have been dealt.
+
+3. No, the game currently is not implemented to detect if the game should end or continue.
+
+4. a. Under anotherPlayIsPossible(),
+      and called from newGame() and the constructor.
+   b. anotherPlayIsPossible() or isLegal() (which could be called in anotherPlayIsPossible()).
+   c. 0, 1, 3, 6, 7
+   d.
+    public static void printCards(ElevensBoard board){
+      List<Integer> cIndexes = board.cardIndexes();
+      for(int i : cIndexes){
+        System.out.println(board.cardAt(i));
+      }
+    }
+    e. anotherPlayIsPossible()
+       isLegal is provided cards to choose from to see if the selected move is legal, whereas anotherPlayIsPossible() outright scans the upright cards and tells if another move is possible.
+       Because we need to see if there is an 11 sum pair or a JQK triplet to see if a move is possible, and we need the card indices to check that, we call all 3 methods in anotherPlayIsPossible().
+
+Act 8:
+1. Similarities:
+    same deck
+    same dealing methods
+    same general rules (need to have an available pair/trio to remove)
+   Differences:
+    different sums
+    different face up cards
+    different special cases for (royal) cards
+    different point values
+
+2. When we construct an ElevensBoard, we assign all of the instance variables in board to suit the specific game, which in this case, is elevens.
+
+3. isLegal() and anotherPlayIsPossible() are abstract methods.
+   They are implemented in ElevensBoard with the same signature, minus the "abstract". There is also an @Override.
+   Sort of. The differences here that aren't covered are the different number of cards dealt, which could be handled through differen constructors for different games.
+   Although it would seem to make more sense to have the BOARD_SIZE variable be in Board.java instead of specific game boards.
+
+Act 9:
+1. Size only has to return the size of the deck, the board size has no difference.
+
+2. The way cards are removed from a deck after being dealt does not differ between games.
+
+3. Although it would work, we wouldn't get the benefit of being able to just call a method used in all of these games.
+   We would instead have to implement the repeated methods within each game.
