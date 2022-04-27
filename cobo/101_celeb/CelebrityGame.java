@@ -11,22 +11,26 @@ public class CelebrityGame
 	/**
 	 * A reference to a Celebrity or subclass instance.
 	 */
-	 private Celebrity celeb = new Celebrity();
+	 private Celebrity gameCelebrity;
 
 	/**
 	 * The GUI frame for the Celebrity game.
 	 */
+	 private CelebrityFrame gameWindow = new celebrityFrame(this);
 
 	/**
 	 * The ArrayList of Celebrity values that make up the game
 	 */
-	 private Arraylist<Celebrity> celebList = new ArrayList<Celebrity>();
-
+	 private Arraylist<Celebrity> celebGameList;
 	/**
 	 * Builds the game and starts the GUI
 	 */
 	public CelebrityGame()
 	{
+		celebGameList = new ArrayList<Celebrity>();
+		gameCelebrity = new Celebrity();
+
+
 	}
 
 	/**
@@ -34,6 +38,9 @@ public class CelebrityGame
 	 */
 	public void prepareGame()
 	{
+		//why is this here? didn't we do it in the const?
+		celebGameList = new ArrayList<Celebrity>();
+		gameWindow.replaceScreen("START");
 	}
 
 	/**
