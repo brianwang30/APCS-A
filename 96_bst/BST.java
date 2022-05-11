@@ -129,6 +129,73 @@ public class BST
     System.out.print(currNode.getValue());
   }
 
+  TreeNode search( int target )
+  {
+    return search(target, _root);
+  }
+  TreeNode search( int target, TreeNode curNode){
+    if(target == curNode.getValue()){
+      return curNode;
+    }
+    else if(target > curNode.getValue() && curNode.getRight() != null){
+      return search(target, curNode.getRight());
+    }
+    else if(target < curNode.getValue() && curNode.getLeft() != null){
+      return search(target, curNode.getLeft());
+    }
+    else{
+      return null;
+    }
+  }
+
+
+  /*****************************************************
+   * int height()
+   * returns height of this tree (length of longest leaf-to-root path)
+   * eg: a 1-node tree has height 1
+   *****************************************************/
+  public int height()
+  {
+    return height(_root);
+  }
+  public int height(TreeNode curNode){
+if(curNode == null){
+  return 0;
+  //height may be 1 off, test if it should be 0 or -1
+}
+    else if(height(curNode.getLeft()) > height(curNode.getRight())){
+      return height(curNode.getLeft()) + 1;
+    }
+    else{
+      return height(curNode.getRight()) + 1;
+    }
+
+  }
+
+
+  /*****************************************************
+   * int numLeaves()
+   * returns number of leaves in tree
+   * PROBABLY DOES NOT WORK CURRENTLY
+   *****************************************************/
+  public int numLeaves()
+  {
+    return numLeaves(_root, 0);
+  }
+  public int numLeaves(TreeNode curNode, int curLeaves){
+    if(curNode.getLeft() != null){
+      curLeaves = numLeaves(curNode.getLeft(), curLeaves);
+    }
+    if(curNode.getRight() != null){
+      curLeaves = numLeaves(curNode.getRight(), curLeaves);
+    }
+    if(curNode.getLeft() == null && curNode.getRight() == null){
+      return curLeaves + 1;
+    }
+
+    return curLeaves;
+  }
+
   //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -174,6 +241,12 @@ public class BST
       arbol.postOrderTrav();
 
       System.out.println( "\n-----------------------------");
+
+      System.out.println("other testing");
+      System.out.println(arbol.height());
+      System.out.println(arbol.numLeaves());
+      System.out.println(arbol.search(3).getValue());
+      System.out.println(arbol.search(11));
       /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }
