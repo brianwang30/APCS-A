@@ -1,9 +1,9 @@
 /*
 FRED (Brian Wang, Brian Kang, Ethan Lam)
 APCS
-HW95 BST
-2022--05--09
-time spent: .5 hrs
+HW97 BST
+2022--05--11
+time spent: 1 hrs
 */
 
 /**
@@ -111,79 +111,11 @@ public class BST
     if(currNode.getRight()  != null){
       inOrderTrav(currNode.getRight());
     }
-    //main method for testing
-    public static void main( String[] args ) {
-
-	BST arbol = new BST();
-
-	System.out.println( "tree init'd: " + arbol );
-
-	//inserting in this order will build a perfect tree
-	arbol.insert( 3 );
-	arbol.insert( 1 );
-	arbol.insert( 0 );
-	arbol.insert( 2 );
-	arbol.insert( 5 );
-	arbol.insert( 4 );
-	arbol.insert( 6 );
-	/*
-	*/
-
-	//insering in this order will build a linked list to left
-	/*
-	arbol.insert( 6 );
-	arbol.insert( 5 );
-	arbol.insert( 3 );
-	arbol.insert( 4 );
-	arbol.insert( 2 );
-	arbol.insert( 1 );
-	arbol.insert( 0 );
-	*/
-
-	System.out.println( "tree after insertions:\n" + arbol );
-	System.out.println();
-
-	System.out.println();
-	for( int i=-1; i<8; i++ ) {
-	    System.out.println(" searching for "+i+": " + arbol.search(i) );
-	}
-
-	System.out.println();
-	System.out.println( arbol );
-
-	arbol.remove(6);
-	System.out.println();
-	System.out.println( arbol );
-
-	arbol.remove(5);
-	System.out.println();
-	System.out.println( arbol );
-
-	arbol.remove(4);
-	System.out.println();
-	System.out.println( arbol );
-
-	arbol.remove(3);
-	System.out.println();
-	System.out.println( arbol );
-
-	arbol.remove(2);
-	System.out.println();
-	System.out.println( arbol );
-
-	arbol.remove(1);
-	System.out.println();
-	System.out.println( arbol );
-
-	arbol.remove(0);
-	System.out.println();
-	System.out.println( arbol );
-
   }
 
+
   //recurse left, recurse right, process root
-  public void postOrderTrav()
-  {
+  public void postOrderTrav(){
     postOrderTrav(_root);
   }
   public void postOrderTrav( TreeNode currNode )
@@ -216,10 +148,7 @@ public class BST
     }
   }
 
-  String toString(){
-    inOrderTrav();
-    return "testing tostring";
-  }
+
 
 
   /*****************************************************
@@ -268,7 +197,129 @@ if(curNode == null){
   }
 
 
-  
+  /*****************************************************
+   * void remove
+   * Replaces the removed child with its child, and puts the non removed child as a child as the newly promoted child.
+   *****************************************************/
+  public void remove(int target){
+    TreeNode curNode = _root;
+    if(_root == null){
+      return;
+    }
+    //remove root
+    if(target == _root.getValue()){
+      if(_root.getRight() != null){
+        _root = _root.getRight();
+      }
+      else if(_root.getLeft() != null){
+        if(_root.getRight() != null){
+          curNode = _root.getRight();
+          while(curNode.getLeft() != null){
+            curNode = curNode.getLeft();
+          }
+          _root.setLeft(_root.getLeft());
+        }
+        else{
+          _root = _root.getLeft();
+        }
+      }
+      else if(_root.getLeft() == null && _root.getRight() == null){
+        _root = null;
+      }
+      return;
+
+    }
+
+    //other nodes
+    TreeNode remNode = search(target);
+    TreeNode parNode = lagSearch(target);
+    TreeNode othNode = new TreeNode(-99999999);
+    int removed = 1;
+    if(remNode.getValue() == parNode.getLeft().getValue()){
+      othNode = parNode.getRight();
+    }
+    else if(remNode.getValue() == parNode.getRight().getValue()){
+      othNode = parNode.getLeft();
+      removed = 2;
+    }
+    if(remNode.getLeft() != null){
+      if(removed == 1){
+        parNode.setLeft(remNode.getLeft());
+      }
+      else{
+        parNode.setRight(remNode.getLeft());
+      }
+      if(remNode.getRight() != null){
+        curNode = remNode.getLeft();
+        while(curNode.getRight() != null){
+          curNode = curNode.getRight();
+        }
+        curNode.setRight(othNode);
+
+      }
+    }
+    else if(remNode.getRight() != null){
+      if(removed == 1){
+        parNode.setLeft(remNode.getRight());
+      }
+      else{
+        parNode.setRight(remNode.getRight());
+      }
+    }
+    else{
+      if(removed == 1){
+        parNode.setLeft(null);
+      }
+      else{
+        parNode.setRight(null);
+      }
+    }
+  }
+
+  /*****************************************************
+   * TreeNode lagSearch(int)
+   * returns the parent of the target
+   *****************************************************/
+  TreeNode lagSearch( int target )
+  {
+    return lagSearch(target, _root, null);
+  }
+  TreeNode lagSearch( int target, TreeNode curNode, TreeNode lagNode){
+    if(target == curNode.getValue()){
+      return lagNode;
+    }
+    else if(target > curNode.getValue() && curNode.getRight() != null){
+      return lagSearch(target, curNode.getRight(), curNode);
+    }
+    else if(target < curNode.getValue() && curNode.getLeft() != null){
+      return lagSearch(target, curNode.getLeft(), curNode);
+    }
+    else{
+      return null;
+    }
+  }
+
+  public String toString(){
+    String retVal = "";
+    if(_root == null){
+      return retVal;
+    }
+    retVal = inOrderToString(_root, retVal);
+    return retVal;
+  }
+
+  public String inOrderToString( TreeNode currNode, String retVal)
+  {
+    if(currNode.getLeft()  != null){
+      retVal = inOrderToString(currNode.getLeft(), retVal);
+    }
+    //System.out.print(currNode.getValue());
+    retVal += currNode.getValue();
+    if(currNode.getRight()  != null){
+      retVal = inOrderToString(currNode.getRight(), retVal);
+    }
+    return retVal;
+  }
 
   //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -278,7 +329,6 @@ if(curNode == null){
   public static void main( String[] args )
   {
 
-      BST arbol = new BST();
 
       /*
                 3
@@ -292,7 +342,7 @@ if(curNode == null){
 
       BST arbol = new BST();
 
-    	System.out.println( "tree init'd: " + arbol );
+    	System.out.println( "tree init'd: " + arbol);
 
     	//inserting in this order will build a perfect tree
     	arbol.insert( 3 );
@@ -304,6 +354,14 @@ if(curNode == null){
     	arbol.insert( 6 );
     	/*
     	*/
+      //System.out.println("INORDER: ");
+      //arbol.inOrderTrav();
+      System.out.println("\nLAGSEARCH TESTS");
+      System.out.println(arbol.lagSearch(0).getValue());
+      System.out.println(arbol.lagSearch(1).getValue());
+      System.out.println(arbol.lagSearch(6).getValue());
+      //System.out.println(arbol.lagSearch(3).getValue());
+      //Null, intentionally
 
     	//insering in this order will build a linked list to left
     	/*
@@ -316,7 +374,7 @@ if(curNode == null){
     	arbol.insert( 0 );
     	*/
 
-    	System.out.println( "tree after insertions:\n" + arbol );
+    	System.out.println( "\ntree after insertions:\n" + arbol );
     	System.out.println();
 
     	System.out.println();
@@ -328,31 +386,31 @@ if(curNode == null){
     	System.out.println( arbol );
 
     	arbol.remove(6);
-    	System.out.println();
+    	System.out.println("removing 6");
     	System.out.println( arbol );
 
     	arbol.remove(5);
-    	System.out.println();
+    	System.out.println("removing 5");
     	System.out.println( arbol );
 
     	arbol.remove(4);
-    	System.out.println();
+    	System.out.println("removing 4");
     	System.out.println( arbol );
 
     	arbol.remove(3);
-    	System.out.println();
+    	System.out.println("removing 3");
     	System.out.println( arbol );
 
     	arbol.remove(2);
-    	System.out.println();
+    	System.out.println("removing 2");
     	System.out.println( arbol );
 
     	arbol.remove(1);
-    	System.out.println();
+    	System.out.println("removing 1");
     	System.out.println( arbol );
 
     	arbol.remove(0);
-    	System.out.println();
+    	System.out.println("removing 0");
     	System.out.println( arbol );
       /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

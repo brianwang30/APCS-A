@@ -1,8 +1,8 @@
 /*
 FRED (Brian Wang, Brian Kang, Ethan Lam)
 APCS
-HW95 BST
-2022--05--09
+HW97 BST
+2022--05--11
 time spent: .5 hrs
 */
 
@@ -95,6 +95,10 @@ public class TreeNode
   void setValue( int theNewValue )
   {
     _cargo = theNewValue;
+  }
+
+  public String toString(){
+    return Integer.toString(_cargo);
   }
 
 }//end class
