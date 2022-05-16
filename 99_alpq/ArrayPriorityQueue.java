@@ -1,20 +1,17 @@
+/*
+Fred (Brian Kang, Brian Wang, Ethan Lam)
+APCS
+HW99: Some Are More Equal Than Others, Codified
+2022-05-13
+time spent: 1hr + class time
+*/
 import java.util.ArrayList;
 public class ArrayPriorityQueue{
   public ArrayList<Integer> pQueue = new ArrayList<Integer>();
 
-  //linear
+  //amortized linear
   public void add(int x){
-    ArrayList<Integer> repQueue = new ArrayList<Integer>();
-    int insInd = 0;
-    for(int i = 0 ; i < pQueue.size() && pQueue.get(i) < x ; i++){
-      insInd = i;
-      repQueue.add(pQueue.get(i));
-    }
-    repQueue.add(x);
-    for(int j = insInd ; j < pQueue.size() ; j++){
-      repQueue.add(pQueue.get(j));
-    }
-    pQueue = repQueue;
+    pQueue.add(x);
   }
 
   //constant
@@ -22,14 +19,26 @@ public class ArrayPriorityQueue{
     return !(pQueue.size()>0);
   }
 
-  //constant
+  //linear
   public int peekMin(){
-    return pQueue.get(pQueue.size()-1);
+    int minInd = 0;
+    for(int i = 1 ; i < pQueue.size() ; i++){
+      if(pQueue.get(minInd) > pQueue.get(i)){
+        minInd = i;
+      }
+    }
+    return pQueue.get(minInd);
   }
 
-  //constant
+  //linear
   public int removeMin(){
-    return pQueue.remove(pQueue.size()-1);
+    int minInd = 0;
+    for(int i = 1 ; i < pQueue.size() ; i++){
+      if(pQueue.get(minInd) > pQueue.get(i)){
+        minInd = i;
+      }
+    }
+    return pQueue.remove(minInd);
   }
 
   public String toString(){
