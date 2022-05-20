@@ -21,41 +21,44 @@ public class Heapsort
     //slot 0 will contain root
     //(heap will grow from L to R)
 
-    maxHeapify(data);
+    minHeapify(data);
     System.out.println( "Array heapified. Root at index 0" );
     printArr( data );
 
 
     //STEP 2: repeatedly pull from heap until empty
     //(Sorted region will grow from R to L)
-    for( int lastLeaf = ; ;  ) {
+    for( int lastLeaf = data.length - 1; lastLeaf > 0 ; lastLeaf--  ) {
       //set aside root val
       int tmp = data[0];
 
       //swap last leaf (rightmost on bottom level) into root pos
 
       //walk now-out-of-place root node down the tree...
-      int pos =
+      int pos = lastLeaf;
       int minChildPos;
       int maxChildPos;
 
-      while(  ) {
+      while( pos > 0 ) {
 
         //choose child w/ max value, or check for child
+          minChildPos = minChildPos(pos, lastLeaf, data);
+          maxChildPos = maxChildPos(pos, lastLeaf, data);
 
         //if no children, then i've walked far enough
         if ( maxChildPos == -1 )
           break;
         //if i am greater than my greatest child, i've walked far enough
-        else if (  )
+        else if ( data[pos] > data[maxChildPos] )
           break;
         //if i am > least child, swap with that child
         else {
-
+          swap(pos, minChildPos, data);
         }
       }
 
       //overwrite last leaf with old root val
+      lastLeaf = tmp;
 
     }
 
@@ -75,13 +78,13 @@ public class Heapsort
       int addValPos = i; //val to add is next non-heap element
 
       //now must percolate up
-      while( addValPos >= 0 ) { //potentially swap until reach root
+      while( addValPos >= 0 ) { //potentially a.length until reach root
 
         //pinpoint parent
         int parentPos = (i-1)/2;
 
         if ( a[addValPos] < a[parentPos] ) {
-          swap( addValPos, parentPos );
+          swap( addValPos, parentPos , a);
           addValPos = parentPos;
         }
         else
@@ -91,12 +94,12 @@ public class Heapsort
   }//end minHeapify() -- O(?)
 
 
-
+/*
   private void maxHeapify( int[] a )
   {
 
   }//end maxHeapify() -- O(?)
-
+*/
 
 
   //return position of child with least value in input array
@@ -107,15 +110,16 @@ public class Heapsort
     int rc = 2*pos + 2; //index of right child
 
     //pos is not in the heap or pos is a leaf position
-    if ( pos >= a.size() || lc >= a.size())
+    if ( pos >= a.length || lc >= a.length)
       retVal = -1;
     //if no right child, then left child is only option for min
-    else if ( rc >= a.size() )
+    else if ( rc >= a.length )
       retVal = lc;
     //have 2 children, so compare to find least
-    else if ( rc < a.size() )
+    else if ( rc < a.length )
       retVal = minOf(lc, rc);
     else
+      retVal = -1;
 
     return retVal;
   }
@@ -125,7 +129,23 @@ public class Heapsort
   //return position of child with greatest value in input array
   private int maxChildPos( int pos, int last, int[] a )
   {
+    int retVal;
+    int lc = 2*pos + 1; //index of left child
+    int rc = 2*pos + 2; //index of right child
 
+    //pos is not in the heap or pos is a leaf position
+    if ( pos >= a.length || lc >= a.length)
+      retVal = -1;
+    //if no right child, then left child is only option for min
+    else if ( rc >= a.length )
+      retVal = lc;
+    //have 2 children, so compare to find least
+    else if ( rc < a.length )
+      retVal = maxOf(lc, rc);
+    else
+      retVal = -1;
+
+    return retVal;
   }
 
 
@@ -139,6 +159,8 @@ public class Heapsort
     o[x] = o[y];
     o[y] = tmp;
   }
+
+  private int maxOf(int a, int b) {return (a>b)?a:b; };
 
   public static void printArr( int[] a )
   {
@@ -173,7 +195,7 @@ public class Heapsort
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    System.out.println("hi");
     int[] a = buildArray( 10, 10 );
 
     printArr(a);
@@ -183,6 +205,7 @@ public class Heapsort
     h.sort(a);
 
     printArr(a);
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
   }//end main()
